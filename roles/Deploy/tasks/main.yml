@@ -2,7 +2,7 @@
 - name: Copy file to server and executing
   become: yes
   become_user: wngapp
-  #shell: ps -ef | grep skynet
+  shell: ps -ef | grep skynet
   ignore_errors: yes
 
 
