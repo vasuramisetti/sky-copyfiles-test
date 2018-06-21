@@ -2,5 +2,14 @@
 - name: Copy file to server and executing
   become: yes
   become_user: wngapp
-  shell: ps -ef | grep skynet
+  #shell: ps -ef | grep skynet
   ignore_errors: yes
+
+
+- name: Download Artifacts
+  become: yes
+  become_user: wngapp
+  get_url:
+          url: http://artifacts.sandbox.west.com/artifactory/libs-snapshot-local/Customer-Experience/notifications-walmart-skynet/Dev/37/skynet-1.2.3.jar
+          dest: /home/wngapp/
+          mode: 0755
