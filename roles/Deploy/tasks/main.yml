@@ -1,15 +1,24 @@
 ---
-- name: Copy file to server and executing
+
+- name: Execute shell script on dev server dm-vramiset
+  shell: ps -ef | grep skynet
+
+- name: Copy file to dev server dm-vramiset
+  copy:
+    src: ansible-script.sh
+    dest: /home/dm-vramiset/ansible-script.sh
+    mode: 0755
+
+- name: Execute shell script on dev server service account wngapp
   become: yes
   become_user: wngapp
   shell: ps -ef | grep skynet
-  ignore_errors: yes
 
-
-- name: Download Artifacts
+- name: Copy file to dev server wngapp
   become: yes
   become_user: wngapp
-  get_url:
-          url: http://artifacts.sandbox.west.com/artifactory/libs-snapshot-local/Customer-Experience/notifications-walmart-skynet/Dev/37/skynet-1.2.3.jar
-          dest: /home/wngapp/
-          mode: 0755
+  copy:
+    src: ansible-script.sh
+    dest: /home/wngapp/ansible-script.sh
+    mode: 0755
+  
