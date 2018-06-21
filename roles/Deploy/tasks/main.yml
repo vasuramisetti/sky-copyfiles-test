@@ -6,7 +6,7 @@
 - name: Execute shell script on dev server service account wngapp
   become: yes
   become_user: wngapp
-  shell: ps -ef | grep skynet
+  shell: ps -aux | grep skynet
 
 - name: Copy file to dev server with user wngapp
   become: yes
