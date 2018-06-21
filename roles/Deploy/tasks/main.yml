@@ -1,24 +1,23 @@
 ---
 
-- name: Execute shell script on dev server dm-vramiset
-  shell: ps -ef | grep skynet
-
-- name: Copy file to dev server dm-vramiset
-  copy:
-    src: ansible-script.sh
-    dest: /home/dm-vramiset/ansible-script.sh
-    mode: 0755
+- name: Execute shell script on dev server with user dm-vramiset
+  shell: sudo initctl stop skynet
 
 - name: Execute shell script on dev server service account wngapp
   become: yes
   become_user: wngapp
   shell: ps -ef | grep skynet
 
-- name: Copy file to dev server wngapp
+- name: Copy file to dev server with user wngapp
   become: yes
   become_user: wngapp
   copy:
     src: ansible-script.sh
     dest: /home/wngapp/ansible-script.sh
     mode: 0755
-  
+
+  # name: Execute shell script on dev server with user wngapp
+  # become: yes
+  # become_user: wngapp
+  # shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
+  # chmod: 0755

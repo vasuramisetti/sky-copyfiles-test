@@ -4,15 +4,16 @@
 
 VERSION=$1
 
-#Ex: tag 20
-tag=$2
+#If Ex: Jenkins Build Number: 1
+
+BuildNumber=$2
 
 if [ -z "$VERSION" ]; then
    echo "Invalid version."
    exit 1
 fi
 
-if [ -z "$tag" ]; then
+if [ -z "$BuildNumber" ]; then
    echo "Invalid tag."
    exit 1
 fi
@@ -66,24 +67,24 @@ cd "$STAGEDIR"
 
        cd $STAGEDIR/bin/
 
-        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${tag}/skynet.sh
+        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/skynet.sh
 
 
         cd $STAGEDIR/lib/
 
-        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${tag}/skynet-${VERSION}.jar
+        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/skynet-${VERSION}.jar
 
 
 
-       cd $STAGEDIR/config/
+       #cd $STAGEDIR/config/
 
-       # wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${tag}/led01506/application-led01506.yml
+       # wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/application-led01506.yml
        #
        #
-       # wget  http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${tag}/led01506/logback-led01506.xml
+       # wget  http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/logback-led01506.xml
        #
        #
-       # wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${tag}/led01506/upstart-skynet.conf
+       # wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/upstart-skynet.conf
 
 
 #Make the requisite directories if they don't
