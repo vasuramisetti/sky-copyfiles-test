@@ -1,0 +1,52 @@
+app: 
+  cc: 
+    service: 
+      delayTime: 60
+      recordCount: 4000
+  completedFiles: 
+    directory: /wic/work/walmart/skynet/completed
+  failedWriteback: 
+    directory: /wic/work/walmart/skynet/wberrors
+  pod: led01506
+  prefws: 
+    token: 07de2cac-e4f0-4090-9648-ad38806ef38d
+    url: "http://dist1.wic.west.com/webservices/walmart/prefws/api.php/v1/"
+  rabbitmq: 
+    rateLimit: 
+      skynet: 1000
+      walmart: 
+        writeback: 1000
+    skynet: 
+      maxConsumers: 50
+      minConsumers: 5
+      walmart: 
+        writeback: 
+          maxConsumers: 100
+          minConsumers: 50
+  toggles: 
+    ccDatabasePoller: true
+    skynetQueueListener: true
+    writebackQueueListener: true
+  walmart: 
+    writeback: 
+      consumerid: 4a15cd20-a30f-4ec9-920d-19788603f120
+      privatekey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBALiF9Rw6wiDWanlJ71Xmu95JZBqFOsrnOsuz0q9LNDwtVJXguI0Nnmnmu599E46+RsZr/DsmUnSFxnxD3i2aw3IlJgrK72WwQVV3kUXE8ZzPo/p/pmYA2fbLdoBb6BCAlZwDN3aVkT1JIQRvYZt3b7GgLLS0svUe4FnYSSRwUrjrAgMBAAECgYEAovHgVlJo9XiCw6KPkCrWAeCLXoQCPAVfPV0JkrR1ZyKcjFHKhvzcxCX1z0wzRh0vAK+BKHaZ3732XevMujbtmVAZLcSA49S1Jl3srKdiqhzmLH8MXV0UcMrfMZEcuaGbQczWxYqE+hshs3IcZAfxSE5t+/xSQd2+pc58wghpj6ECQQDvjqEIKkmwsvQ085G166yyH+s2pRjPL2ax2dlBfJru7QNu6bGSs0GFF1BzOYWAfJRc2td5DMXEqraxhQEqEJ0RAkEAxTBNa8ZgnxkOP7bLkbfIHsDPXWuIs3ujofvBb1Bacnk6RBF1S12bXmwvUj4dNXX8e1nHxxyNUN+rQlJqrE4mOwJAE68Likk3Pt6ldEhjO6h+yzAWOqo8LKH/dTOqR1g+vs0Y0B9BqQUzqATvZlheoN0br7mHpPmosm04j8OXAebVkQJANQcASvNWGHLMeiXWKKGbl2mSWjUI1ftxzaW+JwkcyZwAJz3qpRHPLl05fIxnnnDULPe/2bO77Pu5OmSfeyao8QJBAKEj051eiXtGHuyfLp2C5areEwvJFt/Uv6U7wMkkHoTOL+VzkAOTOXM6pcpQGwGtXI4PoSV7sJomNJgOYpr+/C0=
+      svcenv: stg
+      url: "http://linux5237.wic.west.com:8280/services/Walmart_Opt_Proxy"
+datasource: 
+  informix: 
+    password: safeT1st
+    url: "jdbc:informix-sqli://ibm90:8407/campmgr2:informixserver=ibm90"
+    username: wi
+endpoints: 
+  enabled: true
+  logfile: 
+    enabled: true
+    external-file: /wic/sys/skynet/logs/skynet.log
+    sensitive: false
+spring: 
+   rabbitmq: 
+     addresses: led32799
+     password: skynet
+     username: skynet
+     virtualHost: cxmoutbounddev

@@ -1,0 +1,55 @@
+spring:
+   rabbitmq:
+      addresses: cxm-outbound-rabbitmq  # See https://wiki.west.com/display/OBBH/Environment+and+Server+Details
+      username: skynet
+      password: skynet
+      virtualHost: cxmoutbounddev
+
+datasource:
+   informix:
+      url: jdbc:informix-sqli://led30872:9088/campmgr:informixserver=informixdb26_atl	
+      username: wicccwmp
+      password: MMKvxxHeOuSuMKq6hiSe
+
+
+app:
+   rabbitmq:
+      rateLimit:
+         skynet: 1000
+         walmart:
+            writeback: 1000
+      skynet:
+         minConsumers: 5
+         maxConsumers: 50
+         walmart:
+            writeback:
+               minConsumers: 50
+               maxConsumers: 100
+   cc:
+      service:
+         delayTime: 60
+         recordCount: 4000
+   completedFiles:
+      directory: /wic/work/walmart/skynet/completed
+   failedWriteback:
+       directory: /wic/work/walmart/skynet/wberrors
+   pod: led01512
+   prefws:
+      token: 213f505b-19a7-46bf-90af-b0f152bbf91b
+      url: http://vxmlapps/webservices/walmart/prefws/api.php/v1/
+   toggles:
+      ccDatabasePoller: true
+      skynetQueueListener: true
+      writebackQueueListener: true
+   walmart:
+      writeback:
+         consumerid: 81a88f93-85d7-4e2f-bf3f-96d88ae546f9
+         url: http://wicclientinterface:8280/services/Walmart_Opt_Proxy
+         svcenv: prod
+         privatekey: MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAKwNQlUj0QasZoAH3JKnx/YZzHqXL9gd9RUC5r92SofBKpI/Oez/RG6SQhwFe+r2okBTF2TWSfZgNBUIKsjQHI8pgufNSZzvX88sOCiAyLr6gr5TFiaRDE/x4KYJ6zJPgIV4QhMC7Qzl3w6Sezfbucl9gJmTrZYq3qobXVlGVTLXAgMBAAECgYEAgyG/8uBPikSQAvj69pQGZd4X6T+d6Zw7lX4WnMrt1zY02i5yWd3dLGExHeZYIidEVr590A87ZBrC11zYLyHfAUZ5l5Q1N2zILeUI6NXZ3g2OzvrSl0zZW9+kwrIk9ZkHUsjIowCHoMZb9Jhv+5DnayseHXXaGkFNm2WZyl0hjGECQQDSgBk/pKgfAIOyqnjsoe2V7bgpQ8XEqb0olhj5zgUzwxAkR0LARXE2K6Nyzh6Zwrdz1WdbTgExwkKWvUHrREsvAkEA0T2h/Hnq2ci0dj+unx2g+0RCdQzyihADoEwWOibqTrr37QoZBVrg2ubj68F0pPT9Qfy+g/tAflrLRw5nlGgI2QJBAKwoBf5ODQ2l3w/dah6l5GitTeO5wOIxrDmoYG7Vdt25l9cDzOzxHkEeeYPoXZCFdoIus2QyLLnkVY9w45uldBMCQQCjQzPhjD9zLuegXJAkFzpE1D4GltOoZlZt/PBa74Jja/+HNRnQ09ge9YlhqtEY5Q+3LT56PNFVxgJWryai5YoBAkA33Ax/urvpjFT7K63qiXUKOa59k+nHGh2//UhlPw/L95b4KPsnfVFaTB1QhN1FKsNb35dwiz9wkRDzPm4hm218
+endpoints:
+   enabled: true
+   logfile:
+      enabled: true
+      external-file: /wic/log/skynet/skynet.log
+      sensitive: false

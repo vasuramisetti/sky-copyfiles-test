@@ -1,20 +1,20 @@
 ---
 
-- name: Execute shell script on dev server with user dm-vramiset
-  shell: sudo initctl stop skynet
+# - name: Execute shell script on dev server with user dm-vramiset
+#   shell: sudo initctl stop skynet
+#
+# - name: Execute shell script on dev server with user wngapp
+#   become: yes
+#   become_user: wngapp
+#   shell: ps -aux | grep skynet
 
-- name: Execute shell script on dev server service account wngapp
-  become: yes
-  become_user: wngapp
-  shell: ps -aux | grep skynet
-
-- name: Copy file to dev server with user wngapp
-  become: yes
-  become_user: wngapp
-  copy:
-    src: ansible-script.sh
-    dest: /home/wngapp/ansible-script.sh
-    mode: 0755
+# - name: Copy file to dev server with user wngapp
+#   # become: yes
+#   # become_user: wngapp
+#   copy:
+#     src: ansible-script.sh
+#     dest: /home/wngapp/ansible-script.sh
+#     mode: 0755
 
   # - name: Execute shell script on dev server with user wngapp
   # become: yes
@@ -23,4 +23,12 @@
   # chmod: 0755
 
   # - name: Start Skynet service
-  #   shell: sudo initctl start skynet  
+  #   shell: sudo initctl start skynet
+- name: Copy file to dev server based on hostname
+  # become: yes
+  # become_user: wngapp
+  copy:
+    src: documentation/preprodconfigs/led01506/
+    dest: /tmp/testpreprod/
+    mode: 0755
+    when: "'led01506' in inventory_hostname"
