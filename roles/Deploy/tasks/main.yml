@@ -1,6 +1,9 @@
 ---
+# - name: Execute shell script on dev server with user dm-vramiset
+#   shell: sudo initctl stop skynet
+
 - name: Execute shell script on dev server with user dm-vramiset
-  shell: sudo initctl stop skynet
+  shell: ps -aux | grep skynet
 
 - name: Copy file to dev server based on hostname
   become: yes
