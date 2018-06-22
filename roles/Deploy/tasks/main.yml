@@ -31,6 +31,6 @@
     src:  "{{ item }}"
     dest: /tmp/testpreprod/
     mode: 0755
-    with_fileglob:
-      - documentation/preprodconfigs/led01506/*
+  with_fileglob:
+    - documentation/preprodconfigs/led01506/*
   when: inventory_hostname == "led01506"
