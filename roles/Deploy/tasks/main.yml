@@ -8,7 +8,7 @@
 
 - shell: sh -c "sudo initctl stop skynet"
   become: yes
-  become_user: some-non-root-user
+  become_user: dm-vramiset
   become_method: sudo
 
 
