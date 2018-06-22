@@ -1,7 +1,6 @@
 ---
-
-# - name: Execute shell script on dev server with user dm-vramiset
-#   shell: sudo initctl stop skynet
+- name: Execute shell script on dev server with user dm-vramiset
+  shell: sudo initctl stop skynet
 
 - name: Copy file to dev server based on hostname
   become: yes
@@ -15,18 +14,18 @@
   when: inventory_hostname == "led01506"
 
 
-# - name: Execute shell script on dev server with user wngapp
-#   become: yes
-#   become_user: wngapp
-#   shell: ps -aux | grep skynet
+ - name: Execute shell script on dev server with user wngapp
+   become: yes
+   become_user: wngapp
+   shell: ps -aux | grep skynet
 
-# - name: Copy file to dev server with user wngapp
-#   # become: yes
-#   # become_user: wngapp
-#   copy:
-#     src: ansible-script.sh
-#     dest: /home/wngapp/ansible-script.sh
-#     mode: 0755
+- name: Copy file to dev server with user wngapp
+  become: yes
+  become_user: wngapp
+  copy:
+    src: ansible-script.sh
+    dest: /home/wngapp/ansible-script.sh
+    mode: 0755
 
   # - name: Execute shell script on dev server with user wngapp
   # become: yes
