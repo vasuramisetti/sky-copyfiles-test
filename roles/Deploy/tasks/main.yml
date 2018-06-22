@@ -28,7 +28,7 @@
   # become: yes
   # become_user: wngapp
   copy:
-    src: documentation/preprodconfigs/led01506/
+    src: "../documentation/preprodconfigs/led01506/"
     dest: /tmp/testpreprod/
     mode: 0755
   when: inventory_hostname == "led01506"
