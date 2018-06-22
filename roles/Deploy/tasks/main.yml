@@ -5,19 +5,12 @@
 # - name: Execute shell script on dev server with user dm-vramiset
 #   shell: ps -aux | grep skynet
 
-- name: Copy file to dev server with user wngapp
-  copy:
-    src: stop.sh
-    dest: /home/dm-vramiset/stop.sh
-    mode: 0755
 
-- name: Execute shell script on dev server
+- shell: sh -c "sudo initctl stop skynet"
   become: yes
-  become_user: dm-vramiset
-  shell: sh /home/dm-vramiset/stop.sh  > /home/dm-vramiset/stop.log
-  chmod: 0755
-  args:
-    chdir: /home/dm-vramiset/
+  become_user: some-non-root-user
+  become_method: sudo
+
 
 # - name: Copy file to dev server based on hostname
 #   become: yes
