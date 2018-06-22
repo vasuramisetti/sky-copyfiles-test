@@ -76,15 +76,15 @@ cd "$STAGEDIR"
 
 
 
-       #cd $STAGEDIR/config/
+       cd $STAGEDIR/config/
 
-       # wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/application-led01506.yml
-       #
-       #
-       # wget  http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/logback-led01506.xml
-       #
-       #
-       # wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/upstart-skynet.conf
+       wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/application-led01506.yml
+
+
+       wget  http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/logback-led01506.xml
+
+
+       wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/upstart-skynet.conf
 
 
 #Make the requisite directories if they don't
