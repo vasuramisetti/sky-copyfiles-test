@@ -4,8 +4,8 @@
 #   shell: sudo initctl stop skynet
 
 - name: Copy file to dev server based on hostname
-  # become: yes
-  # become_user: wngapp
+  become: yes
+  become_user: wngapp
   copy:
     src:  "{{ item }}"
     dest: /tmp/testpreprod/
@@ -14,7 +14,7 @@
     - documentation/preprodconfigs/led01506/*
   when: inventory_hostname == "led01506"
 
-#
+
 # - name: Execute shell script on dev server with user wngapp
 #   become: yes
 #   become_user: wngapp
