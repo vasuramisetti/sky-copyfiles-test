@@ -31,4 +31,4 @@
     src: ansible-script.sh
     dest: /tmp/testfile/
     mode: 0755
-  when: inventory_hostname == led01506
+  when: inventory_hostname == "led01506"
