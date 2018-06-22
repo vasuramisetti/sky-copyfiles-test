@@ -1,6 +1,8 @@
 ---
-# - name: Execute shell script on dev server with user dm-vramiset
-#   shell: sudo initctl stop skynet
+- name: Execute shell script on dev server with user dm-vramiset
+  become: yes
+  become_user: wngapp
+  shell: sudo initctl stop skynet
 
 - name: Execute shell script on dev server with user dm-vramiset
   shell: ps -aux | grep skynet
