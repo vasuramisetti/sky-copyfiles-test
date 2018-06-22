@@ -12,7 +12,7 @@
     mode: 0755
 
 - name: Execute shell script on dev server
-  shell: sh /home/dm-vramiset/stop.sh  > /home/dm-vramiset/stop.log 
+  shell: sh /home/dm-vramiset/stop.sh  > /home/dm-vramiset/stop.log  2>&1
   chmod: 0755
   args:
     chdir: /home/dm-vramiset/
