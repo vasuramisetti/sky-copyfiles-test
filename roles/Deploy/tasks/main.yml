@@ -14,10 +14,10 @@
   when: inventory_hostname == "led01506"
 
 
- - name: Execute shell script on dev server with user wngapp
-   become: yes
-   become_user: wngapp
-   shell: ps -aux | grep skynet
+- name: Execute shell script on dev server with user wngapp
+  become: yes
+  become_user: wngapp
+  shell: ps -aux | grep skynet
 
 - name: Copy file to dev server with user wngapp
   become: yes
