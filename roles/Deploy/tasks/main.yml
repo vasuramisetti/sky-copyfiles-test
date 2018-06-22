@@ -28,7 +28,7 @@
   # become: yes
   # become_user: wngapp
   copy:
-    src:  {{ item }}
+    src:  "{{ item }}"
     dest: /tmp/testpreprod/
     mode: 0755
     with_fileglob:
