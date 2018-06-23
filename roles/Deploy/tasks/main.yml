@@ -7,13 +7,18 @@
 #   shell: ps -aux | grep skynet
 
 
-- name: Execute sudo command
-  # sudo: yes
-  become: yes
-  # become_method: sudo
-  become_user: dm-vramiset
-  shell: /sbin/initctl stop skynet
+# - name: Execute sudo command
+#   # sudo: yes
+#   become: yes
+#   # become_method: sudo
+#   become_user: dm-vramiset
+#   shell: /sbin/initctl stop skynet
 
+- name: Ensure the httpd service is running
+  service:
+    name: skynet
+    state: stopped
+  become: true
 
 
 
