@@ -12,7 +12,7 @@
   become: yes
   # become_method: sudo
   # become_user: dm-vramiset
-  shell: initctl stop skynet
+  shell: /sbin/initctl stop skynet
 
 
 
