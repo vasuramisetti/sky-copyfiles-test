@@ -16,10 +16,9 @@
 
 - name: Ensure the httpd service is running
   sudo: yes
-  service:
-    name: skynet
-    state: stopped
   become: yes
+  shell: /sbin/initctl stop skynet
+
 
 # - name: Run a command as the apache user
 #   command: /sbin/initctl stop skynet
