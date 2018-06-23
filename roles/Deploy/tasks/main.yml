@@ -21,7 +21,7 @@
 #   become: true
 
 - name: Run a command as the apache user
-  command: initctl stop skynet
+  command: /sbin/initctl stop skynet
   become: true
   become_user: dm-vramiset
 
