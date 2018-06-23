@@ -17,7 +17,7 @@
 - name: Ensure the httpd service is running
   sudo: yes
   become: yes
-  shell: sudo initctl stop skynet
+  shell: initctl stop skynet
   owner: root
 
 
