@@ -14,10 +14,10 @@
 #   become_user: dm-vramiset
 #   shell: /sbin/initctl stop skynet
 
-- name: Ensure the httpd service is running
-  sudo: yes
-  become: yes
-  shell: /sbin/initctl stop skynet
+# - name: Ensure the httpd service is running
+#   sudo: yes
+#   become: yes
+#   shell: /sbin/initctl stop skynet
 
 
 # - name: Run a command as the apache user
@@ -25,16 +25,28 @@
 #   become: true
 #   become_user: dm-vramiset
 
-# - name: Copy file to dev server based on hostname
-#   become: yes
-#   become_user: wngapp
-#   copy:
-#     src:  "{{ item }}"
-#     dest: /tmp/testpreprod/
-#     mode: 0755
-#   with_fileglob:
-#     - documentation/preprodconfigs/led01506/*
-#   when: inventory_hostname == "led01506"
+- name: Copy file to dev server based on hostname
+  become: yes
+  become_user: wngapp
+  copy:
+    src:  "{{ item }}"
+    dest: /tmp/testpreprod/
+    mode: 0755
+  with_fileglob:
+    - documentation/preprodconfigs/led01506/*
+  when: inventory_hostname == "led01506"
+
+- name: Copy file to dev server based on hostname2
+  become: yes
+  become_user: wngapp
+  copy:
+    src:  "{{ item }}"
+    dest: /tmp/testpreprod/
+    mode: 0755
+  with_fileglob:
+    - documentation/preprodconfigs/led01510/*
+  when: inventory_hostname == "led01510"
+
 
 
 # - name: Execute shell script on dev server with user wngapp
