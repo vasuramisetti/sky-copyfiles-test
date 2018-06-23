@@ -15,6 +15,8 @@
 #   shell: /sbin/initctl stop skynet
 
 - name: Ensure the httpd service is running
+  sudo: true
+  sudo_user: root
   service:
     name: skynet
     state: stopped
