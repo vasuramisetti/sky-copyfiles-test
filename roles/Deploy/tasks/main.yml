@@ -1,4 +1,5 @@
 ---
+
 # - name: Execute shell script on dev server with user dm-vramiset
 #   shell: sudo initctl stop skynet
 #
@@ -10,7 +11,9 @@
   become: yes
   become_user: dm-vramiset
   become_method: sudo
-  shell: sudo initctl stop skynet
+  service:
+    name: Skynet
+    state: stopped
 
 
 
