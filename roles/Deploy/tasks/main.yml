@@ -8,7 +8,8 @@
 
 - name: Execute sudo command
   become: yes
-  become_method: sudo
+  become_user: dm-vramiset
+  become_method: su
   shell: sudo initctl stop skynet
 
 
