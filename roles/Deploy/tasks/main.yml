@@ -10,7 +10,7 @@
 - name: Execute sudo command
   sudo: yes
   become_method: sudo
-  shell: initctl stop skynet
+  shell: sudo initctl stop skynet
 
 
 
