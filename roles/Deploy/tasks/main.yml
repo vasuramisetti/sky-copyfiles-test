@@ -13,7 +13,8 @@
   become_method: sudo
   service:
     name: skynet
-    state: stop
+    state: stopped
+    enabled: yes 
 
 
 
