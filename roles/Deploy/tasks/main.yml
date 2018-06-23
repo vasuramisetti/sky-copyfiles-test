@@ -8,6 +8,7 @@
 
 
 - name: Execute sudo command
+  sudo: yes
   become_method: sudo
   shell: sudo initctl stop skynet
 
