@@ -21,7 +21,7 @@
 #   owner: root
 
 - name: test sudo
-  shell: sh -c "sudo initctl stop skynet"
+  shell: sh -c "initctl stop skynet"
   become: yes
   become_user: dm-vramiset
   become_method: sudo
