@@ -30,7 +30,7 @@
 - name: sudo test
   command: initctl stop skynet
   become: true
-  become_user: root
+  become_user: dm-vramiset
   become_method: su
 
 
