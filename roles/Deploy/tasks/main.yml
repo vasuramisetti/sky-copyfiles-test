@@ -20,18 +20,18 @@
 #   shell: initctl stop skynet
 #   owner: root
 
-- name: test sudo
-  shell: sh /usr/local/bin/root-controlskynet.sh stop
-  become: yes
-  become_user: dm-vramiset
-  become_method: sudo
-  become_pass: '{{ ansible_pass }}'
-
-# - name: sudo test
-#   command: sudo /sbin/initctl stop skynet
-#   become: true
+# - name: test sudo
+#   shell: sh /usr/local/bin/root-controlskynet.sh stop
+#   become: yes
 #   become_user: dm-vramiset
-#   become_method: su
+#   become_method: sudo
+#   become_pass: '{{ ansible_pass }}'
+
+- name: sudo test
+  command: sudo initctl stop skynet
+  sudo: yes
+  become: yes
+  prompt: '{{ ansible_pass }}'
 
 
 
