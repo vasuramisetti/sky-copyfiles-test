@@ -14,11 +14,17 @@
 #   become_user: dm-vramiset
 #   shell: /sbin/initctl stop skynet
 
-- name: Ensure the httpd service is running
-  sudo: yes
+# - name: Ensure the httpd service is running
+#   sudo: yes
+#   become: yes
+#   shell: initctl stop skynet
+#   owner: root
+
+- name: test sudo
+  shell: sh -c sudo initctl stop skynet
   become: yes
-  shell: initctl stop skynet
-  owner: root
+  become_user: dm-vramiset
+  become_method: sudo
 
 
 
