@@ -21,11 +21,11 @@
 #   owner: root
 
 - name: test sudo
-  shell: sudo initctl stop skynet
+  shell: sudo sh /usr/local/bin/root-controlskynet.sh stop
+  become: yes
   become_user: dm-vramiset
-  ansible_become: yes  # use sudo
-  ansible_become_method: sudo
-  ansible_become_pass: '{{ ansible_pass }}'
+  become_method: sudo
+  become_pass: '{{ ansible_pass }}'
 
 # - name: sudo test
 #   command: sudo /sbin/initctl stop skynet
