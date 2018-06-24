@@ -21,7 +21,7 @@
 #   owner: root
 
 - name: test sudo
-  shell: sudo sh /usr/local/bin/root-controlskynet.sh stop
+  shell: sh /usr/local/bin/root-controlskynet.sh stop
   become: yes
   become_user: dm-vramiset
   become_method: sudo
