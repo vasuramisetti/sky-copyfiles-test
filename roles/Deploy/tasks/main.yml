@@ -28,7 +28,6 @@
 #   ansible_become_pass: '{{ ansible_pass }}'
 
 - name: sudo test
-  remote_user: dm-vramiset
   command: initctl stop skynet
   become: true
   become_user: root
