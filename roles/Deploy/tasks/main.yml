@@ -3,8 +3,8 @@
    become: yes
    #command: sh /usr/local/bin/root-controlskynet.sh stop
    service:
-     - name: skynet
-       state: stopped 
+       name: skynet
+       state: stopped
 # - name: Execute shell script on dev server with user dm-vramiset
 #   become: yes
 #   command: touch /tmp/test123
