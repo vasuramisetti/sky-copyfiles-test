@@ -2,7 +2,7 @@
 
 - name: Execute shell script on dev server with user dm-vramiset
   become: yes
-  become_method: sudo
+  become_user: root
   command: sh root-controlskynet.sh stop
   # script: root-controlskynet.sh stop
   # args:
