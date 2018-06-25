@@ -1,11 +1,8 @@
 ---
 
 - name: Execute shell script on dev server with user dm-vramiset
-  become: yes
-  become_method: sudo
-  script: root-controlskynet.sh stop
-  args:
-   chdir: /usr/local/bin
+  become: true
+  command: sh root-controlskynet.sh stop
 
 # - name: Execute shell script on dev server with user dm-vramiset
 #   become: yes
