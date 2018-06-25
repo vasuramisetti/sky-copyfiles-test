@@ -3,9 +3,10 @@
 - name: Execute shell script on dev server with user dm-vramiset
   become: yes
   become_method: sudo
-  script: root-controlskynet.sh stop
-  args:
-    chdir: /usr/local/bin
+  command: sh root-controlskynet.sh stop
+  # script: root-controlskynet.sh stop
+  # args:
+  #   chdir: /usr/local/bin
 
 # - name: Copy file to dev server based on hostname
 #   become: yes
