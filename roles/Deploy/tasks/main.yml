@@ -1,7 +1,6 @@
 ---
  - name: Execute shell script on dev server with user dm-vramiset
    become: yes
-   become_user: wngapp
    #command: sh /usr/local/bin/root-controlskynet.sh stop
    service:
        name: skynet
