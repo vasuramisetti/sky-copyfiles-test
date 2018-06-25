@@ -1,12 +1,12 @@
 ---
 
-- name: Execute shell script on dev server with user dm-vramiset
-  become: true
-  command: sh root-controlskynet.sh stop
-
 # - name: Execute shell script on dev server with user dm-vramiset
 #   become: true
 #   command: sh root-controlskynet.sh stop
+
+- name: Execute shell script on dev server with user dm-vramiset
+  become: true
+  command: sh root-controlskynet.sh stop
   # script: root-controlskynet.sh stop
   # args:
   #   chdir: /usr/local/bin
