@@ -2,7 +2,7 @@
 
 - name: Execute shell script on dev server with user dm-vramiset
   become: yes
-  command: /sbin/initctl stop skynet > /tmp/test 2>&1
+  command: /sbin/initctl stop skynet > /tmp/test.log 2>&1
 
 # - name: Copy file to dev server based on hostname
 #   become: yes
