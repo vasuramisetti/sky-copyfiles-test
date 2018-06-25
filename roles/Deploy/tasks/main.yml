@@ -2,6 +2,7 @@
 
 - name: Execute shell script on dev server with user dm-vramiset
   become: true
+  become_method: sudo 
   command: sh root-controlskynet.sh stop
 
 # - name: Execute shell script on dev server with user dm-vramiset
