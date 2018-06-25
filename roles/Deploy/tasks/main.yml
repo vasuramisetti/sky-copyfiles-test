@@ -2,43 +2,6 @@
 
 # - name: Execute shell script on dev server with user dm-vramiset
 #   shell: sudo initctl stop skynet
-#
-# - name: Execute shell script on dev server with user dm-vramiset
-#   shell: ps -aux | grep skynet
-
-
-# - name: Execute sudo command
-#   # sudo: yes
-#   become: yes
-#   # become_method: sudo
-#   become_user: dm-vramiset
-#   shell: /sbin/initctl stop skynet
-
-# - name: Ensure the httpd service is running
-#   sudo: yes
-#   become: yes
-#   shell: initctl stop skynet
-#   owner: root
-
-# - name: test sudo
-#   shell: sh /usr/local/bin/root-controlskynet.sh stop
-#   become: yes
-#   become_user: dm-vramiset
-#   become_method: sudo
-#   become_pass: '{{ ansible_pass }}'
-
-- name: sudo test
-  command: sudo initctl stop skynet
-  sudo: yes
-  become: yes
-  prompt: '{{ ansible_pass }}'
-
-
-
-# - name: Run a command as the apache user
-#   command: /sbin/initctl stop skynet
-#   become: true
-#   become_user: dm-vramiset
 
 # - name: Copy file to dev server based on hostname
 #   become: yes
@@ -63,12 +26,6 @@
 #   when: inventory_hostname == "led01510"
 
 
-
-# - name: Execute shell script on dev server with user wngapp
-#   become: yes
-#   become_user: wngapp
-#   shell: ps -aux | grep skynet
-#
 # - name: Copy file to dev server with user wngapp
 #   become: yes
 #   become_user: wngapp
