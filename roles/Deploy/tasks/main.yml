@@ -1,7 +1,7 @@
 ---
  - name: Execute shell script on dev server with user dm-vramiset
    become: true
-   become_user: root
+   become_user: wngapp
    command: sh root-controlskynet.sh stop
 
 # - name: Execute shell script on dev server with user dm-vramiset
