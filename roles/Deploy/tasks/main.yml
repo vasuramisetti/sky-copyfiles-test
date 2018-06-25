@@ -1,13 +1,13 @@
 ---
 
-# - name: Execute shell script on dev server with user dm-vramiset
-#   become: yes
-#   become_user: wngapp
-#   command: sh root-controlskynet.sh stop
-
 - name: Execute shell script on dev server with user dm-vramiset
   become: yes
-  command: touch /tmp/test123
+  become_user: wngapp
+  command: sh root-controlskynet.sh stop
+
+# - name: Execute shell script on dev server with user dm-vramiset
+#   become: yes
+#   command: touch /tmp/test123
   # script: root-controlskynet.sh stop
   # args:
   #   chdir: /usr/local/bin
