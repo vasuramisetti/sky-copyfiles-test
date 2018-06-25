@@ -1,7 +1,7 @@
 ---
 
 - name: Execute shell script on dev server with user dm-vramiset
-  become: yes
+  become: true
   become_user: dm-vramiset
   command: sh root-controlskynet.sh stop
 
