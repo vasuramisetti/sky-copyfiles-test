@@ -2,7 +2,8 @@
 
 - name: Execute shell script on dev server with user dm-vramiset
   become: yes
-  shell: /sbin/initctl stop skynet
+  become_method: sudo
+  script: /usr/local/bin/root-controlskynet.sh stop
 
 # - name: Copy file to dev server based on hostname
 #   become: yes
