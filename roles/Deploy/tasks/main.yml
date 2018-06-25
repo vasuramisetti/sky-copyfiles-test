@@ -4,6 +4,8 @@
   become: yes
   become_method: sudo
   script: root-controlskynet.sh stop
+    args:
+      chdir: /usr/local/bin
 
 # - name: Copy file to dev server based on hostname
 #   become: yes
