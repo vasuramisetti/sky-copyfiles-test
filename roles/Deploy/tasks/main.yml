@@ -8,7 +8,7 @@
     become: yes
     service:
       name: skynet
-      status: stopped
+      state: stopped
 
 
  # - name: Execute shell script on dev server with user dm-vramiset
