@@ -42,16 +42,16 @@
     mode: 0755
 
 
-# - name: Execute shell script on dev server with user wngapp
-#   become: yes
-#   become_user: wngapp
-#   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
-#   chmod: 0755
-#   args:
-#     chdir: /home/wngapp/
-#   register: script-output
-#
-# - debug: msg={{ script.output.stdout }}
+- name: Execute shell script on dev server with user wngapp
+  become: yes
+  become_user: wngapp
+  shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
+  chmod: 0755
+  args:
+    chdir: /home/wngapp/
+  register: script-output
+
+- debug: msg={{ script.output.stdout }}
 #
 #
 # - name: Start Skynet service
