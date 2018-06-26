@@ -45,12 +45,11 @@
 - name: Execute shell script on dev server with user wngapp
   become: yes
   become_user: wngapp
-  shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
+  shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} > /tmp/scrit.logs 2>&1
   chmod: 0755
   args:
     chdir: /home/wngapp/
   register: script-output
-
 
 - debug:
     var: script-output
