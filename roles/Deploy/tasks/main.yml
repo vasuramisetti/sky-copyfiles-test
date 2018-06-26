@@ -51,7 +51,10 @@
     chdir: /home/wngapp/
   register: script-output
 
-- debug: msg={{ script.output.stdout }}
+
+- debug:
+    var: script-output
+    verbosity: 2
 #
 #
 # - name: Start Skynet service
