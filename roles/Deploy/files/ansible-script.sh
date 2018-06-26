@@ -66,17 +66,18 @@ cd "$STAGEDIR"
 
 
        cd $STAGEDIR/bin/
-
+        rm -f $STAGEDIR/bin/*.sh
         wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/skynet.sh
 
 
         cd $STAGEDIR/lib/
-
+        rm -f $STAGEDIR/lib/*.jar
         wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/skynet-${VERSION}.jar
 
 
 
        cd $STAGEDIR/config/
+       rm -f $STAGEDIR/config/*.*
 
        wget   http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/led01506/application-led01506.yml
 
