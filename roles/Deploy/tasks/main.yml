@@ -1,4 +1,8 @@
 ---
+ - name: Execute shell script on dev server with user dm-vramiset
+   become: yes
+   command: sh /usr/local/bin/root-controlskynet.sh stop
+
  # - name: Execute shell script on dev server with user dm-vramiset
  #   become: yes
  #   command: sudo initctl stop skynet
@@ -9,11 +13,10 @@
   # script: root-controlskynet.sh stop
   # args:
   #   chdir: /usr/local/bin
-
+#########################################################################################################################################
 # - name: Copy file to dev server based on hostname
 #   become: yes
 #   become_user: wngapp
-  #become_user: root
 #   copy:
 #     src:  "{{ item }}"
 #     dest: /tmp/testpreprod/
@@ -33,26 +36,29 @@
 #     - documentation/preprodconfigs/led01510/*
 #   when: inventory_hostname == "led01510"
 
-- name: Copy file to dev server with user wngapp
-  become: yes
-  become_user: wngapp
-  copy:
-    src: ansible-script.sh
-    dest: /home/wngapp/ansible-script.sh
-    mode: 0755
-
-
-- name: Execute shell script on dev server with user wngapp
-  become: yes
-  become_user: wngapp
-  shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} > /tmp/scrit.logs 2>&1
-  chmod: 0755
-  args:
-    chdir: /home/wngapp/
-  register: script-output
-
-- debug: var=script-output.stdout_lines
+# - name: Copy file to dev server with user wngapp
+#   become: yes
+#   become_user: wngapp
+#   copy:
+#     src: ansible-script.sh
+#     dest: /home/wngapp/ansible-script.sh
+#     mode: 0755
 #
+
+
+# - name: Execute shell script on dev server with user wngapp
+#   become: yes
+#   become_user: wngapp
+#   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} > /tmp/scrit.logs 2>&1
+#   chmod: 0755
+#   args:
+#     chdir: /home/wngapp/
+#   register: script-output
 #
+# - debug: var=script-output.stdout_lines
+
+#####################################################################################################################################
+
+
 # - name: Start Skynet service
 #   shell: sudo initctl start skynet
