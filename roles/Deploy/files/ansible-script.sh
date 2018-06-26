@@ -131,7 +131,7 @@ mv $CONFIGDIR/* $SKYNETDIR/rollback.$ROLLBACKDATE/config/
 mv $LIBDIR/* $SKYNETDIR/rollback.$ROLLBACKDATE/lib/
 
 #Copy the new files
-cp $STAGEDIR/bin/* $BINDI
+cp $STAGEDIR/bin/* $BINDIR
 chmod 755 $BINDIR
 chown wngapp:wngapp $BINDIR
 cp $STAGEDIR/config/* $CONFIGDIR
