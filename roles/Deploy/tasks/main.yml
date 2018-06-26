@@ -3,7 +3,7 @@
  #   become: yes
  #   become_user: root
  #   command: sh /usr/local/bin/root-controlskynet.sh stop
-
+ 
   - name: Execute shell script on dev server with user dm-vramiset
     become: yes
     service:
