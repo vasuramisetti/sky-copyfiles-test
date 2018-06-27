@@ -2,7 +2,7 @@
  - name: Execute shell script on dev server with user dm-vramiset
    become: yes
    become_user: root
-   command: /sbin/initctl stop skynet
+   command: /sbin/initctl start skynet
 
   # - name: Execute shell script on dev server with user dm-vramiset
   #   become: yes
