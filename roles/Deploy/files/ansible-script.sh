@@ -33,7 +33,7 @@ WBERRDIR="$WORKDIR/wberrors"
 LOGDIR="/var/log/skynet"
 LOGLINK="$SKYNETDIR/logs"
 
-ROLLBACKDATE=`date "+%Y%m%d"`
+ROLLBACKDATE=`date "+%Y%m%d_%H:%M:%S"`
 
 #Check for staged dir before doing anything
 #NOTE: This will not check for files because not
