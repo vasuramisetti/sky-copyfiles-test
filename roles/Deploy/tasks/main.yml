@@ -1,7 +1,7 @@
 ---
  - name: Execute shell script on dev server with user dm-vramiset
    become: yes
-   command: sudo initctl stop skynet 
+   command: /sbin/initctl stop skynet
 
   # - name: Execute shell script on dev server with user dm-vramiset
   #   become: yes
