@@ -7,8 +7,7 @@
 
   roles:
     - Deploy
-  tags:
-    - Deploy
+  tags: Deploy
 
 - name: Rollback configurations on host server.
   hosts: all
@@ -17,5 +16,4 @@
 
   roles:
     - Rollback
-  tags:
-    - Rollback
+  tags: Rollback
