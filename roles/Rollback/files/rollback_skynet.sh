@@ -10,13 +10,13 @@
 SKYNETDIR="/wic/sys/skynet"
 
 # Remove changes made
-echo "rm /wic/sys/skynet/bin/*"
-echo "rm /wic/sys/skynet/config/*"
-echo "rm /wic/sys/skynet/lib/*"
+rm /wic/sys/skynet/bin/*
+rm /wic/sys/skynet/config/*
+rm /wic/sys/skynet/lib/*
 
 #Get latest rollback backup foldername
 ROLLBACKFOLDER=`ls -t $SKYNETDIR | grep "rollback.*" | head -1`
-echo $ROLLBACKFOLDER
+echo "Rollback folder name:  $ROLLBACKFOLDER"
 
 #Roll back changes
 
