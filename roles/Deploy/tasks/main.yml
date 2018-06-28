@@ -1,10 +1,10 @@
 ---
- - name: Execute shell script on dev server with user dm-vramiset
+ - name: Stop skynet application as a dm-vramiset user with Sudo privileges
    become: yes
    become_user: root
    command: /sbin/initctl stop skynet
 
- - name: Copy file to dev server based on hostname
+ - name: Copy config files to dev server based on hostname
    become: yes
    become_user: wngapp
    copy:
@@ -15,7 +15,7 @@
      - documentation/preprodconfigs/led01506/*
    when: inventory_hostname == "led01506"
 
- - name: Copy file to dev server based on hostname
+ - name: Copy config files to dev server based on hostname
    become: yes
    become_user: wngapp
    copy:
@@ -26,7 +26,7 @@
      - documentation/preprodconfigs/led01510/*
    when: inventory_hostname == "led01510"
 
- - name: Copy file to dev server with user wngapp
+ - name: Copy deployment script file to dev server with user wngapp
    become: yes
    become_user: wngapp
    copy:
@@ -35,7 +35,7 @@
      mode: 0755
 
 
- - name: Execute shell script on dev server with user wngapp
+ - name: Execute deployment script on dev server with user wngapp
    become: yes
    become_user: wngapp
    shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
@@ -46,7 +46,7 @@
 
  - debug: var=scriptoutput.stdout_lines
 
- - name: Execute shell script on dev server with user dm-vramiset
+ - name: Start skynet application as a dm-vramiset user with Sudo privileges
    become: yes
    become_user: root
    command: /sbin/initctl start skynet

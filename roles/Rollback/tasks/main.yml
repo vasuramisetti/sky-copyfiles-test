@@ -1,5 +1,5 @@
 ---
- - name: Stop skynet app on dev server as user dm-vramiset with Sudo privillage
+ - name: Stop skynet application as a dm-vramiset user with Sudo privileges
    become: yes
    become_user: root
    command: /sbin/initctl stop skynet
@@ -24,7 +24,7 @@
 
  - debug: var=scriptoutput.stdout_lines
 
- - name: Execute shell script on dev server with user dm-vramiset
+ - name: Start skynet application as a dm-vramiset user with Sudo privileges
    become: yes
    become_user: root
    command: /sbin/initctl start skynet
