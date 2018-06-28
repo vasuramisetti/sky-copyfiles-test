@@ -4,6 +4,28 @@
    become_user: root
    command: /sbin/initctl stop skynet
 
+ - name: Copy file to dev server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/preprodconfigs/led01506/*
+   when: inventory_hostname == "led01506"
+
+ - name: Copy file to dev server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/preprodconfigs/led01510/*
+   when: inventory_hostname == "led01510"
+
  - name: Copy file to dev server with user wngapp
    become: yes
    become_user: wngapp
@@ -28,6 +50,8 @@
    become: yes
    become_user: root
    command: /sbin/initctl start skynet
+
+
 
 
 
