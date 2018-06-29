@@ -55,7 +55,7 @@
    register: scriptoutput
    when: inventory_hostname == "led01510"
 
- - debug: var=scriptoutput.stdout_lines
+ # - debug: var=scriptoutput.stdout_lines
 
  - name: Start skynet application as a dm-vramiset user with Sudo privileges
    become: yes
