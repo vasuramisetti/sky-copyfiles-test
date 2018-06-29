@@ -38,7 +38,7 @@
  - name: Execute deployment script on dev server with user wngapp
    become: yes
    become_user: wngapp
-   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} Dev
+   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} 
    chmod: 0755
    args:
      chdir: /home/wngapp/
