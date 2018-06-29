@@ -38,11 +38,22 @@
  - name: Execute deployment script on dev server with user wngapp
    become: yes
    become_user: wngapp
-   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
+   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} Dev
    chmod: 0755
    args:
      chdir: /home/wngapp/
    register: scriptoutput
+   when: inventory_hostname == "led01506"
+
+ - name: Execute deployment script on dev server with user wngapp
+   become: yes
+   become_user: wngapp
+   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} QA
+   chmod: 0755
+   args:
+     chdir: /home/wngapp/
+   register: scriptoutput
+   when: inventory_hostname == "led01510"
 
  - debug: var=scriptoutput.stdout_lines
 

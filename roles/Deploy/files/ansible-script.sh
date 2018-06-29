@@ -7,7 +7,7 @@ VERSION=$1
 #If Ex: Jenkins Build Number: 1
 
 BuildNumber=$2
-
+REPO=$3
 if [ -z "$VERSION" ]; then
    echo "Invalid version."
    exit 1
@@ -67,12 +67,12 @@ cd "$STAGEDIR"
 
        cd $STAGEDIR/bin/
         rm -f $STAGEDIR/bin/*.sh
-        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/skynet.sh
+        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/${REPO}/${BuildNumber}/skynet.sh
 
 
         cd $STAGEDIR/lib/
         rm -f $STAGEDIR/lib/*.jar
-        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/Dev/${BuildNumber}/skynet-${VERSION}.jar
+        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/${REPO}/${BuildNumber}/skynet-${VERSION}.jar
 
 
 
