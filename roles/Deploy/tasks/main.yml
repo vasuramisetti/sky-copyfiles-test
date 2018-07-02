@@ -32,14 +32,14 @@
    become_user: wngapp
    copy:
      src: ansible-script.sh
-     dest: /home/wngapp/ansible-script.sh  > /tmp/vasu/test.log  2>&1
+     dest: /home/wngapp/ansible-script.sh
      mode: 0755
 
 
  - name: Execute deployment script on dev server with user wngapp
    become: yes
    become_user: wngapp
-   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} {{REPO}}
+   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} {{REPO}}  > /tmp/vasu/test.log  2>&1
    chmod: 0755
    args:
      chdir: /home/wngapp/
