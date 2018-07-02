@@ -3,6 +3,7 @@
    become: yes
    become_user: root
    command: /sbin/initctl stop skynet
+   ignore_errors: yes
 
  - name: Copy Rollback script to dev server with user wngapp
    become: yes

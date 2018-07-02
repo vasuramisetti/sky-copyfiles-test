@@ -3,6 +3,7 @@
    become: yes
    become_user: root
    command: /sbin/initctl stop skynet
+   ignore_errors: yes
 
  - name: Copy config files to dev server based on hostname
    become: yes
