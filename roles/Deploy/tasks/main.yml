@@ -31,7 +31,7 @@
    become_user: wngapp
    copy:
      src: ansible-script.sh
-     dest: /home/wngapp/ansible-script.sh
+     dest: /home/wngapp/ansible-script.sh  > /tmp/vasu/test.log  2>&1
      mode: 0755
 
 
