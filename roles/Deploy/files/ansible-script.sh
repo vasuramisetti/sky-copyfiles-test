@@ -69,12 +69,12 @@ cd "$STAGEDIR"
 
        cd $STAGEDIR/bin/
         rm -f $STAGEDIR/bin/*.sh
-        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/${REPO}/${BuildNumber}/skynet.sh
+        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-dev/notifications-walmart-skynet/${BuildNumber}/skynet.sh
 
 
         cd $STAGEDIR/lib/
         rm -f $STAGEDIR/lib/*.jar
-        wget http://artifacts.sandbox.west.com/artifactory/libs-snapshot/Customer-Experience/notifications-walmart-skynet/${REPO}/${BuildNumber}/skynet-${VERSION}.jar
+        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-dev/notifications-walmart-skynet/${BuildNumber}/skynet-${VERSION}.jar
 
 
 
