@@ -39,24 +39,24 @@
  - name: Execute deployment script on dev server with user wngapp
    become: yes
    become_user: wngapp
-   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}  > /tmp/vasu/test.log  2>&1
+   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} {{REPO}} > /tmp/vasu/test.log  2>&1
    chmod: 0755
    args:
      chdir: /home/wngapp/
    register: scriptoutput
-   when: inventory_hostname == "led01506"
-
- - name: Execute deployment script on dev server with user wngapp
-   become: yes
-   become_user: wngapp
-   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
-   chmod: 0755
-   args:
-     chdir: /home/wngapp/
-   register: scriptoutput
-   when: inventory_hostname == "led01510"
-
- # - debug: var=scriptoutput.stdout_lines
+ #   when: inventory_hostname == "led01506"
+ #
+ # - name: Execute deployment script on dev server with user wngapp
+ #   become: yes
+ #   become_user: wngapp
+ #   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}}
+ #   chmod: 0755
+ #   args:
+ #     chdir: /home/wngapp/
+ #   register: scriptoutput
+ #   when: inventory_hostname == "led01510"
+ #
+ # # - debug: var=scriptoutput.stdout_lines
 
  - name: Start skynet application as a dm-vramiset user with Sudo privileges
    become: yes
