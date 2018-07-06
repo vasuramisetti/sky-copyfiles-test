@@ -8,7 +8,7 @@ VERSION=$1
 
 BuildNumber=$2
 
-REPO=$3
+
 
 if [ -z "$VERSION" ]; then
    echo "Invalid version."
