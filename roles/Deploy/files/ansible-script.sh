@@ -9,6 +9,7 @@ VERSION=$1
 BuildNumber=$2
 
 REPO=$3
+BRANCHNAME=$4
 
 if [ -z "$VERSION" ]; then
    echo "Invalid version."
@@ -69,12 +70,12 @@ cd "$STAGEDIR"
 
        cd $STAGEDIR/bin/
         rm -f $STAGEDIR/bin/*.sh
-        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-${REPO}/notifications-walmart-skynet/${BuildNumber}/skynet.sh
+        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-${REPO}/notifications-walmart-skynet/${BRACHNAME}/${BuildNumber}/skynet.sh
 
 
         cd $STAGEDIR/lib/
         rm -f $STAGEDIR/lib/*.jar
-        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-${REPO}/notifications-walmart-skynet/${BuildNumber}/skynet-${VERSION}.jar
+        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-${REPO}/notifications-walmart-skynet/${BRANCHNAME}/${BuildNumber}/skynet-${VERSION}.jar
 
 
 
