@@ -70,7 +70,7 @@ cd "$STAGEDIR"
 
        cd $STAGEDIR/bin/
         rm -f $STAGEDIR/bin/*.sh
-        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-${REPO}/notifications-walmart-skynet/${BRACHNAME}/${BuildNumber}/skynet.sh
+        wget http://artifacts.west.com/artifactory/Customer-Experience-maven-${REPO}/notifications-walmart-skynet/${BRANCHNAME}/${BuildNumber}/skynet.sh
 
 
         cd $STAGEDIR/lib/
