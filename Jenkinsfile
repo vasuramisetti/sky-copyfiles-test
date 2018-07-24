@@ -11,7 +11,7 @@ branchName = env.BRANCH_NAME
 
 // isMaster = branchName == "master" || branchName == "dev"
 
-if ( branchName == 'dev-test') {
+if ( branchName == 'master') {
 
  node {
     //Java path setup
