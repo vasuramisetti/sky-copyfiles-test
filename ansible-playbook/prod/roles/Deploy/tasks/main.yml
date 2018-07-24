@@ -1,0 +1,97 @@
+---
+ - name: Stop skynet application with Sudo privileges
+   become: yes
+   become_user: root
+   command: /sbin/initctl stop skynet
+   ignore_errors: yes
+
+ - name: Copy config files to prod server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/prodconfigs/led01507/*
+   when: inventory_hostname == "led01507"
+
+ - name: Copy config files to prod server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/prodconfigs/led01508/*
+   when: inventory_hostname == "led01508"
+
+ - name: Copy config files to prod server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/prodconfigs/led01509/*
+   when: inventory_hostname == "led01509"
+
+ - name: Copy config files to prod server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/prodconfigs/led01511/*
+   when: inventory_hostname == "led01511"
+
+ - name: Copy config files to prod server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/prodconfigs/led01512/*
+   when: inventory_hostname == "led01512"
+
+ - name: Copy config files to prod server based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src:  "{{ item }}"
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   with_fileglob:
+     - documentation/prodconfigs/led01513/*
+   when: inventory_hostname == "led01513"
+
+
+ - name: Copy deployment script file to prod servers with user wngapp
+   become: yes
+   become_user: wngapp
+   copy:
+     src: ansible-script.sh
+     dest: /home/wngapp/ansible-script.sh
+     mode: 0755
+
+
+ - name: Execute deployment script on prod servers with user wngapp
+   become: yes
+   become_user: wngapp
+   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} > /tmp/vasu/test.log  2>&1
+   chmod: 0755
+   args:
+     chdir: /home/wngapp/
+   register: scriptoutput
+
+
+ - name: Start skynet application with Sudo privileges
+   become: yes
+   become_user: root
+   command: /sbin/initctl start skynet

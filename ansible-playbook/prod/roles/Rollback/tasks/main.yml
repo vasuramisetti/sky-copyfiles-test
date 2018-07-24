@@ -1,0 +1,31 @@
+---
+ - name: Stop skynet application with user Sudo privileges
+   become: yes
+   become_user: root
+   command: /sbin/initctl stop skynet
+   ignore_errors: yes
+
+ - name: Copy Rollback script to prod server with user wngapp
+   become: yes
+   become_user: wngapp
+   copy:
+     src: rollback_skynet.sh
+     dest: /home/wngapp/rollback_skynet.sh
+     mode: 0755
+
+
+ - name: Execute Rollback script on prod server with user wngapp
+   become: yes
+   become_user: wngapp
+   shell: sh /home/wngapp/rollback_skynet.sh
+   chmod: 0755
+   args:
+     chdir: /home/wngapp/
+   register: scriptoutput
+
+ - debug: var=scriptoutput.stdout_lines
+
+ - name: Start skynet application with user Sudo privileges
+   become: yes
+   become_user: root
+   command: /sbin/initctl start skynet

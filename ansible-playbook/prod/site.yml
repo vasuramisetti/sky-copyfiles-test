@@ -1,0 +1,19 @@
+---
+# This playbook deploys the whole application stack in this site.
+- name: Apply configurations to host server.
+  hosts: all
+  connection: ssh
+  gather_facts: yes
+
+  roles:
+    - Deploy
+  tags: Deploy
+
+- name: Rollback configurations on host server.
+  hosts: all
+  connection: ssh
+  gather_facts: yes
+
+  roles:
+    - Rollback
+  tags: Rollback
