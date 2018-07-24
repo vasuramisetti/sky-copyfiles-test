@@ -1,10 +1,10 @@
 ---
- - name: Stop skynet application with user Sudo privileges
-   become: yes
-   become_user: root
-   command: /sbin/initctl stop skynet
-   ignore_errors: yes
-
+ # - name: Stop skynet application with user Sudo privileges
+ #   become: yes
+ #   become_user: root
+ #   command: /sbin/initctl stop skynet
+ #   ignore_errors: yes
+ #
  - name: Copy config files to prepod servers based on hostname
    become: yes
    become_user: wngapp
@@ -15,37 +15,37 @@
    with_fileglob:
      - documentation/preprodconfigs/led01506/*
    when: inventory_hostname == "led01506"
-
- - name: Copy config files to prepod servers based on hostname
-   become: yes
-   become_user: wngapp
-   copy:
-     src:  "{{ item }}"
-     dest: /tmp/skynet-configfile/
-     mode: 0755
-   with_fileglob:
-     - documentation/preprodconfigs/led01510/*
-   when: inventory_hostname == "led01510"
-
- - name: Copy deployment script file to prepod server with user wngapp
-   become: yes
-   become_user: wngapp
-   copy:
-     src: ansible-script.sh
-     dest: /home/wngapp/ansible-script.sh
-     mode: 0755
-
-
- - name: Execute deployment script on prepod server with user wngapp
-   become: yes
-   become_user: wngapp
-   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} {{REPO}} {{BRANCHNAME}}> /tmp/vasu/test.log  2>&1
-   chmod: 0755
-   args:
-     chdir: /home/wngapp/
-   register: scriptoutput
-
- - name: Start skynet application with user Sudo privileges
-   become: yes
-   become_user: root
-   command: /sbin/initctl start skynet
+ #
+ # - name: Copy config files to prepod servers based on hostname
+ #   become: yes
+ #   become_user: wngapp
+ #   copy:
+ #     src:  "{{ item }}"
+ #     dest: /tmp/skynet-configfile/
+ #     mode: 0755
+ #   with_fileglob:
+ #     - documentation/preprodconfigs/led01510/*
+ #   when: inventory_hostname == "led01510"
+ #
+ # - name: Copy deployment script file to prepod server with user wngapp
+ #   become: yes
+ #   become_user: wngapp
+ #   copy:
+ #     src: ansible-script.sh
+ #     dest: /home/wngapp/ansible-script.sh
+ #     mode: 0755
+ #
+ #
+ # - name: Execute deployment script on prepod server with user wngapp
+ #   become: yes
+ #   become_user: wngapp
+ #   shell: sh /home/wngapp/ansible-script.sh {{VERSION}} {{BuildNumber}} {{REPO}} {{BRANCHNAME}}> /tmp/vasu/test.log  2>&1
+ #   chmod: 0755
+ #   args:
+ #     chdir: /home/wngapp/
+ #   register: scriptoutput
+ #
+ # - name: Start skynet application with user Sudo privileges
+ #   become: yes
+ #   become_user: root
+ #   command: /sbin/initctl start skynet
