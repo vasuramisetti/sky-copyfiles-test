@@ -1,0 +1,10 @@
+---
+- copy:
+   src: "{{item.src}}"
+   dest: "{{item.dest}}"
+   mode: 0744
+  become: yes
+  become_user: wngapp
+  with_items:
+    - { src: ../documentation/preprodconfigs/led01506/ , dest: /tmp/skynet-configfile/}
+  
