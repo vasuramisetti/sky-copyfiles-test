@@ -5,17 +5,35 @@
  #   command: /sbin/initctl stop skynet
  #   ignore_errors: yes
  #
+#################################################################################################################################
+# - name: Copy files to another server
+#   copy:
+#    src: "{{item.src}}"
+#    dest: "{{item.dest}}"
+#    mode: 0744
+#   become: yes
+#   become_user: Vasudev
+#   with_items:
+#     - { src: ../../documentation/preprodconfigs/led01506/ , dest: /tmp/skynet-configfile/}
+#   when: inventory_hostname == "13.59.148.119"
 
-- name: Copy files to another server
-  copy:
-   src: "{{item.src}}"
-   dest: "{{item.dest}}"
-   mode: 0744
-  become: yes
-  become_user: Vasudev
-  with_items:
-    - { src: ../../documentation/preprodconfigs/led01506/ , dest: /tmp/skynet-configfile/}
-  when: inventory_hostname == "13.59.148.119"
+#################################################################################################################################
+
+ - name: Copy files to another server another method
+   become: yes
+   become_user: Vasudev
+   copy:
+    src: ../../documentation/preprodconfigs/led01506/
+    dest: /tmp/skynet-configfile/
+   when: inventory_hostname == "13.59.148.119"
+
+
+
+
+
+
+
+
 
 
 # when: inventory_hostname == "13.59.148.119"
