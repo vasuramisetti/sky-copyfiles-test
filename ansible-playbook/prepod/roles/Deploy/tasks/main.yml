@@ -9,7 +9,7 @@
  - name: Copy config files to prepod servers based on hostname
    become: yes
    become_user: Vasudev
-   copy:
+   with_items:
      src: ../../documentation/preprodconfigs/led01506/ ,
      dest: /tmp/skynet-configfile/
      mode: 0755
