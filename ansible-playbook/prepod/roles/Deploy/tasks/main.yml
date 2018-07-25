@@ -25,7 +25,7 @@
    copy:
     src: ../../documentation/preprodconfigs/led01506/
     dest: /tmp/skynet-configfile/
-   when: inventory_hostname == "13.59.148.119"
+   when: inventory_hostname == "13.59.148.110"
 
 
 
