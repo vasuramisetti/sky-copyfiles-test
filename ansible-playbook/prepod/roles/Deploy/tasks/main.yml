@@ -6,14 +6,14 @@
  #   ignore_errors: yes
  #
 
- # - name: Copy config files to prepod servers based on hostname
- #   become: yes
- #   become_user: wngapp
- #   copy:
- #     src: ~/documentation/preprodconfigs/led01506/*
- #     dest: /tmp/skynet-configfile/
- #     mode: 0755
- #   when: inventory_hostname == "led01506"
+ - name: Copy config files to prepod servers based on hostname
+   become: yes
+   become_user: wngapp
+   copy:
+     src: ../../documentation/preprodconfigs/led01506/ ,
+     dest: /tmp/skynet-configfile/
+     mode: 0755
+   when: inventory_hostname == "led01506"
 
 
 
@@ -31,7 +31,7 @@
  #
  # - debug: var=scriptoutput.stdout_lines
 
-- import_tasks: copy.yml
+# - import_tasks: copy.yml
 
 
 
