@@ -6,4 +6,4 @@
   become: yes
   become_user: wngapp
   with_items:
-    - { src: /documentation/preprodconfigs/led01506/ , dest: /tmp/skynet-configfile/}
+    - { src: documentation/preprodconfigs/led01506/ , dest: /tmp/skynet-configfile/}
