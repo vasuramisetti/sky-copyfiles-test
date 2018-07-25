@@ -30,7 +30,8 @@
    register: copy_output
 
 
-   - name: show copy copy_outputdebug: msg="{{ copy_output.stdout_lines }}"
+ - name: show copy copy_output
+   debug: msg="{{ copy_output.stdout_lines }}"
  #
  # - name: Copy config files to prepod servers based on hostname
  #   become: yes
