@@ -25,7 +25,7 @@
      dest: /tmp/skynet-configfile/
      mode: 0755
    with_items:
-     - { src: ../documentation/preprodconfigs/led01506/* }
+     - { src: ../../documentation/preprodconfigs/led01506/* }
    when: inventory_hostname == "led01506"
    register: scriptoutput
 
